@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.send(`This is working on port ${PORT}`);
+  res.send('App is working!');
 });
 
 //RUNNING THE APP ON PORT
