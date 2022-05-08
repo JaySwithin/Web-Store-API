@@ -4,6 +4,8 @@ const cors = require("cors");
 
 const PORT = process.env.PORT || 8000;
 
+require('./config/database')
+
 // MIDDLEWARES
 app.use(express.json());
 app.use(cors());
