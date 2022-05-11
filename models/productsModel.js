@@ -5,10 +5,10 @@ const ProductSchema = new mongoose.Schema({
   productDescription: String,
   productCategory: {
     type: String,
-    enum : ['PHONES','COMPUTERS', 'ELECTRONICS', 'FURNITURE', 'CLOTHES'],
+    enum: ["PHONES", "COMPUTERS", "ELECTRONICS", "FURNITURE", "CLOTHES"],
   },
   quantityAvailable: Number,
-  dateAdded: Date
+  dateAdded: Date,
 });
 
 const productModel = mongoose.model("Products", ProductSchema);
