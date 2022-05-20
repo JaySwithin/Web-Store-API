@@ -5,7 +5,11 @@ const router = express.Router();
 const productModel = require("./../models/productsModel");
 
 router.get('/', (req, res) => {
-  res.send('Working now')
+  try {
+    
+  } catch (error) {
+    
+  }
 })
 
 module.exports = router
