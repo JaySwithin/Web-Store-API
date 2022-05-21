@@ -4,6 +4,7 @@ const router = express.Router();
 // IMPORT PRODUCT MODEL.
 const productModel = require("./../models/productsModel");
 
+// ROUTE TO GET ALL PRODUCTS
 router.get("/", (req, res) => {
   try {
     productModel
@@ -26,5 +27,8 @@ router.get("/", (req, res) => {
     console.log(error); 
   }
 });
+
+// ROUTE TO GET PRODUCTS BY CATEGORY
+
 
 module.exports = router;
