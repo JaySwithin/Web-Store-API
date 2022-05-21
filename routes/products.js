@@ -24,13 +24,33 @@ router.get("/", (req, res) => {
         });
       });
   } catch (error) {
-    console.log(error); 
+    console.log(error);
   }
 });
 
 // ROUTE TO GET PRODUCTS BY CATEGORY
-router.get('/:productCategory', (req, res) => {
-  
-})
+router.get("/:productCategory", (req, res) => {
+  try {
+    let { productCategory } = req.params;
+    productModel
+      .find({ productCategory })
+      .then((result) => {
+        res.json({
+          status: "SUCCESS",
+          message: "Products by category fetched.",
+          data: result,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        res.json({
+          status: "FAILED",
+          message: "An error occurred getting products by category.",
+        });
+      });
+  } catch (error) {
+    console.log(error)
+  }
+});
 
 module.exports = router;
