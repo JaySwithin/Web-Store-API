@@ -29,6 +29,8 @@ router.get("/", (req, res) => {
 });
 
 // ROUTE TO GET PRODUCTS BY CATEGORY
-
+router.get('/:productCategory', (req, res) => {
+  
+})
 
 module.exports = router;
