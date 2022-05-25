@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const { v4: uuidv4 } = require('uuid');
 
 // IMPORT PRODUCT MODEL.
 const productModel = require("./../models/productsModel");
@@ -83,7 +84,6 @@ router.get("/:id", (req, res) => {
 router.post("/add-product", (req, res) => {
   try {
     let {
-      productId,
       productName,
       productDescription,
       productCategory,
@@ -91,15 +91,14 @@ router.post("/add-product", (req, res) => {
     } = req.body; 
 
     // Trim of any white spaces
-    productId = productId.trim(),
     productName = productName.trim(),
     productDescription = productDescription.trim(),
     productCategory = productCategory.trim(),
     quantityAvailable = quantityAvailable.trim()
 
-    if([productId, productName, productDescription, productCategory, quantityAvailable].every(Boolean)){
+    if([productName, productDescription, productCategory, quantityAvailable].every(Boolean)){
       const newProduct = new productModel({
-        productId,
+        productId: uuidv4(),
         productName,
         productDescription,
         productCategory,
