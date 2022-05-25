@@ -49,7 +49,32 @@ router.get("/:productCategory", (req, res) => {
         });
       });
   } catch (error) {
-    console.log(error)
+    console.log(error);
+  }
+});
+
+// ROUTE TO GET A PRODUCT BY ID
+router.get("/:id", (req, res) => {
+  try {
+    let { id } = req.params;
+    productModel
+      .findOne({ id: productId })
+      .then((result) => {
+        res.json({
+          status: "SUCCESS",
+          message: "Product fetched successfully.",
+          data: result,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        res.json({
+          status: "FAILED",
+          message: "An error occurred getting activity details. Try again later",
+        });
+      });
+  } catch (error) {
+    console.log(error);
   }
 });
 
