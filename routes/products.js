@@ -70,9 +70,63 @@ router.get("/:id", (req, res) => {
         console.log(error);
         res.json({
           status: "FAILED",
-          message: "An error occurred getting activity details. Try again later",
+          message:
+            "An error occurred getting activity details. Try again later",
         });
       });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// ROUTE TO ADD A NEW PRODUCT
+router.post("/add-product", (req, res) => {
+  try {
+    let {
+      productId,
+      productName,
+      productDescription,
+      productCategory,
+      quantityAvailable
+    } = req.body; 
+
+    // Trim of any white spaces
+    productId = productId.trim(),
+    productName = productName.trim(),
+    productDescription = productDescription.trim(),
+    productCategory = productCategory.trim(),
+    quantityAvailable = quantityAvailable.trim()
+
+    if([productId, productName, productDescription, productCategory, quantityAvailable].every(Boolean)){
+      const newProduct = new productModel({
+        productId,
+        productName,
+        productDescription,
+        productCategory,
+        quantityAvailable,
+        dateAdded: new Date(Date.now())
+      })
+
+      newProduct.save()
+      .then((result) => {
+        res.json({
+          status: "SUCCESS",
+          message: "Product saved successfully.",
+        });
+      })
+      .catch((error) => {
+        console.log(error)
+        res.json({
+          status: "FAILED",
+          message: "Could not save product data.",
+        });
+      })
+    } else {
+      res.json({
+        status: "FAILED",
+        message: "Please fill all input fields",
+      });
+    }
   } catch (error) {
     console.log(error);
   }
