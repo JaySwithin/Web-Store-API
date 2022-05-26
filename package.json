@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A NodeJS API for an e-commerce web application store",
   "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "devstart": "nodemon index.js",
     "start": "npm start"
