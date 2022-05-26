@@ -40,6 +40,8 @@ Hit all the Routes with this Url as its base to access the API
 Method: POST
 Route:
 /api/v1/users/register
+```
+
 
 - Login user with email
 
