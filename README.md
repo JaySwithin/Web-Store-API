@@ -3,7 +3,9 @@ This project can be used as a boiler plate for building a MongoDB-Express-Node b
 
 Base URL: https://web-store-api.vercel.app/
 
-Hit all the Routes with this Url as its base to access the API
+Hit all the Routes with this Url as its base to access the API.
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/688fff53b70eed82b026?action=collection%2Fimport)
 
 ## Features:
   - CRUD operations for products
