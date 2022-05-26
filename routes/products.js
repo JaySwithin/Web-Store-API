@@ -30,7 +30,7 @@ router.get("/", (req, res) => {
 });
 
 // ROUTE TO GET PRODUCTS BY CATEGORY
-router.get("/:productCategory", (req, res) => {
+router.get("/by-category/:productCategory", (req, res) => {
   try {
     let { productCategory } = req.params;
     productModel
@@ -55,7 +55,7 @@ router.get("/:productCategory", (req, res) => {
 });
 
 // ROUTE TO GET A PRODUCT BY ID
-router.get("/:id", (req, res) => {
+router.get("/by-id/:id", (req, res) => {
   try {
     let { id } = req.params;
     productModel
