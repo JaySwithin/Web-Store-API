@@ -36,11 +36,19 @@ router.get("/by-category/:productCategory", (req, res) => {
     productModel
       .find({ productCategory })
       .then((result) => {
-        res.json({
-          status: "SUCCESS",
-          message: "Products by category fetched.",
-          data: result,
-        });
+        if(result.length) {
+          res.json({
+            status: "SUCCESS",
+            message: "Products by category fetched.",
+            data: result,
+          });
+        } else {
+          res.json({
+            status: "FAILED",
+            message: "No products in this category",
+            data: result,
+          });
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -59,7 +67,7 @@ router.get("/by-id/:id", (req, res) => {
   try {
     let { id } = req.params;
     productModel
-      .findOne({ id: productId })
+      .find({ productId: id })
       .then((result) => {
         if(result.length){
           res.json({
