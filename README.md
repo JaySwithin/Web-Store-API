@@ -75,8 +75,9 @@ Route:
 Method: GET
 Route:
 /api/v1/products/by-category/:productCategory
+```
+
 
 ## Running the tests
 
 Currently No tests are available.
-```
