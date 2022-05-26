@@ -61,11 +61,19 @@ router.get("/:id", (req, res) => {
     productModel
       .findOne({ id: productId })
       .then((result) => {
-        res.json({
-          status: "SUCCESS",
-          message: "Product fetched successfully.",
-          data: result,
-        });
+        if(result.length){
+          res.json({
+            status: "SUCCESS",
+            message: "Product fetched successfully.",
+            data: result,
+          });
+        } else {
+          res.json({
+            status: "FAILED",
+            message: "Product does not exist",
+            data: result,
+          });
+        }
       })
       .catch((error) => {
         console.log(error);
