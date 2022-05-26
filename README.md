@@ -22,12 +22,13 @@ Hit all the Routes with this Url as its base to access the API
   - Run 
     ```
     $ npm install 
-    $ npm run devstart
 
   - Set following environment variables in a .env file in the root directory
     ``` 
     #MongoDB connection string
     MONGODB_URI = <some string>
+
+  - Run ``$ npm run devstart`` to start the backend express server on port 8000
 
 
 ## Available Routes
